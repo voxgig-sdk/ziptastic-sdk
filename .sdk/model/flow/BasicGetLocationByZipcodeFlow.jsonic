@@ -1,0 +1,32 @@
+# BasicGetLocationByZipcodeFlow
+
+main: kit: flow: BasicGetLocationByZipcodeFlow:
+{
+  entity: "get_location_by_zipcode",
+  kind: "basic",
+  name: "BasicGetLocationByZipcodeFlow",
+  step: [
+    {
+      input: {
+        ref: "get_location_by_zipcode_ref01",
+        srcdatavar: "get_location_by_zipcode_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "get_location_by_zipcode01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-get_location_by_zipcode_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetLocationByZipcodeFlow"
+}

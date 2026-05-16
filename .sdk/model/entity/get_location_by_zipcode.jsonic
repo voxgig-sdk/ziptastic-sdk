@@ -1,0 +1,80 @@
+# Entity: get_location_by_zipcode
+
+main: kit: entity: get_location_by_zipcode: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "city"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "country"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "get_location_by_zipcode"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "90210"
+                kind: "param"
+                name: "id"
+                orig: "zipcode"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "myCallback"
+                kind: "query"
+                name: "callback"
+                orig: "callback"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/{zipcode}"
+          parts: [
+            "{id}"
+          ]
+          rename: {
+            param: {
+              zipcode: "id"
+            }
+          }
+          select: {
+            exist: [
+              "callback"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

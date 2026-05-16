@@ -1,0 +1,130 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Ziptastic API",
+    "description": "Ziptastic API allows users to retrieve location information based on the zip code provided. It returns details such as the country, state, and city associated with each zip code, making it easy to integrate location lookup into applications.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Ziptastic API",
+      "url": "https://ziptasticapi.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://ziptasticapi.com",
+      "description": "Ziptastic API Server"
+    }
+  ],
+  "paths": {
+    "/{zipcode}": {
+      "get": {
+        "summary": "Get location information by ZIP code",
+        "description": "Returns the Country, State, and City associated with the provided ZIP code",
+        "operationId": "getLocationByZipcode",
+        "parameters": [
+          {
+            "name": "zipcode",
+            "in": "path",
+            "description": "The ZIP code to look up location information for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{5}$",
+              "example": "90210"
+            }
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "Optional JSONP callback function name for cross-domain requests",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "myCallback"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with location information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "country": {
+                      "type": "string",
+                      "description": "The country associated with the ZIP code",
+                      "example": "US"
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "The state associated with the ZIP code",
+                      "example": "CA"
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "The city associated with the ZIP code",
+                      "example": "Beverly Hills"
+                    }
+                  }
+                },
+                "examples": {
+                  "example1": {
+                    "summary": "Example response for ZIP code 90210",
+                    "value": {
+                      "country": "US",
+                      "state": "CA",
+                      "city": "Beverly Hills"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ZIP code format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid ZIP code format"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ZIP code not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "ZIP code not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Location Lookup"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Location Lookup",
+      "description": "Operations for retrieving location information by ZIP code"
+    }
+  ]
+}

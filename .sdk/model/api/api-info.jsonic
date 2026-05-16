@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Ziptastic API"
+        url: "https://ziptasticapi.com/"
+      }
+      description: "Ziptastic API allows users to retrieve location information based on the zip code provided. It returns details such as the country, state, and city associated with each zip code, making it easy to integrate location lookup into applications."
+      servers: [
+        {
+          description: "Ziptastic API Server"
+          url: "http://ziptasticapi.com"
+        }
+      ]
+      title: "Ziptastic API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

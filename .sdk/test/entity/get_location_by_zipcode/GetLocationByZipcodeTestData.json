@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "get_location_by_zipcode": {
+      "GET_LOCATION_BY_ZIPCODE00": {
+        "city": "s1e",
+        "country": "s1f",
+        "state": "s20"
+      },
+      "GET_LOCATION_BY_ZIPCODE01": {
+        "city": "s3c",
+        "country": "s3d",
+        "state": "s3e"
+      },
+      "GET_LOCATION_BY_ZIPCODE02": {
+        "city": "s5a",
+        "country": "s5b",
+        "state": "s5c"
+      }
+    }
+  },
+  "new": {
+    "get_location_by_zipcode": {
+      "get_location_by_zipcode_ref01": {
+        "city": "s78",
+        "country": "s79",
+        "state": "s7a"
+      }
+    }
+  }
+}
