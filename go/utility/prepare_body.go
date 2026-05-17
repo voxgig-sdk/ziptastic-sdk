@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/ziptastic-sdk/core"
+import "github.com/voxgig-sdk/ziptastic-sdk/go/core"
 
 func prepareBodyUtil(ctx *core.Context) any {
 	op := ctx.Op

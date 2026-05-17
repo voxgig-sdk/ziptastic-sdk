@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/ziptastic-sdk"
-	"github.com/voxgig-sdk/ziptastic-sdk/core"
+	sdk "github.com/voxgig-sdk/ziptastic-sdk/go"
+	"github.com/voxgig-sdk/ziptastic-sdk/go/core"
 )
 
 func TestGetLocationByZipcodeDirect(t *testing.T) {

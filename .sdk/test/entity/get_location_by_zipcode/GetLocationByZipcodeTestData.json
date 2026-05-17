@@ -4,17 +4,20 @@
       "GET_LOCATION_BY_ZIPCODE00": {
         "city": "s1e",
         "country": "s1f",
-        "state": "s20"
+        "state": "s20",
+        "id": "GET_LOCATION_BY_ZIPCODE00"
       },
       "GET_LOCATION_BY_ZIPCODE01": {
         "city": "s3c",
         "country": "s3d",
-        "state": "s3e"
+        "state": "s3e",
+        "id": "GET_LOCATION_BY_ZIPCODE01"
       },
       "GET_LOCATION_BY_ZIPCODE02": {
         "city": "s5a",
         "country": "s5b",
-        "state": "s5c"
+        "state": "s5c",
+        "id": "GET_LOCATION_BY_ZIPCODE02"
       }
     }
   },

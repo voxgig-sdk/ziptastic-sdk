@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/ziptastic-sdk/core"
+	"github.com/voxgig-sdk/ziptastic-sdk/go/core"
 )
 
 type BaseFeature struct {
