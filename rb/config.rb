@@ -15,9 +15,6 @@ module ZiptasticConfig
       },
       "options" => {
         "base" => "http://ziptasticapi.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "http://ziptasticapi.com",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
