@@ -110,12 +110,14 @@ func get_location_by_zipcodeDirectSetup(mockres any) *get_location_by_zipcodeDir
 	env := envOverride(map[string]any{
 		"ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID": map[string]any{},
 		"ZIPTASTIC_TEST_LIVE":    "FALSE",
+		"ZIPTASTIC_APIKEY":       "NONE",
 	})
 
 	live := env["ZIPTASTIC_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["ZIPTASTIC_APIKEY"],
 		}
 		client := sdk.NewZiptasticSDK(mergedOpts)
 

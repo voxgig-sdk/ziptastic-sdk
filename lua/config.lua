@@ -14,6 +14,9 @@ local function make_config()
     },
     options = {
       base = "http://ziptasticapi.com",
+      auth = {
+        prefix = "Bearer",
+      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -25,54 +28,56 @@ local function make_config()
       ["get_location_by_zipcode"] = {
         ["fields"] = {
           {
+            ["active"] = true,
             ["name"] = "city",
             ["req"] = false,
             ["type"] = "`$STRING`",
-            ["active"] = true,
             ["index$"] = 0,
           },
           {
+            ["active"] = true,
             ["name"] = "country",
             ["req"] = false,
             ["type"] = "`$STRING`",
-            ["active"] = true,
             ["index$"] = 1,
           },
           {
+            ["active"] = true,
             ["name"] = "state",
             ["req"] = false,
             ["type"] = "`$STRING`",
-            ["active"] = true,
             ["index$"] = 2,
           },
         },
         ["name"] = "get_location_by_zipcode",
         ["op"] = {
           ["load"] = {
+            ["input"] = "data",
             ["name"] = "load",
             ["points"] = {
               {
+                ["active"] = true,
                 ["args"] = {
                   ["params"] = {
                     {
+                      ["active"] = true,
                       ["example"] = "90210",
                       ["kind"] = "param",
                       ["name"] = "id",
                       ["orig"] = "zipcode",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["active"] = true,
                     },
                   },
                   ["query"] = {
                     {
+                      ["active"] = true,
                       ["example"] = "myCallback",
                       ["kind"] = "query",
                       ["name"] = "callback",
                       ["orig"] = "callback",
                       ["reqd"] = false,
                       ["type"] = "`$STRING`",
-                      ["active"] = true,
                     },
                   },
                 },
@@ -96,11 +101,9 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["active"] = true,
                 ["index$"] = 0,
               },
             },
-            ["input"] = "data",
             ["key$"] = "load",
           },
         },

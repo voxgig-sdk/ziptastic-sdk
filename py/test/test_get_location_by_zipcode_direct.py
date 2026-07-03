@@ -66,12 +66,14 @@ def _get_location_by_zipcode_direct_setup(mockres):
     env = runner.env_override({
         "ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID": {},
         "ZIPTASTIC_TEST_LIVE": "FALSE",
+        "ZIPTASTIC_APIKEY": "NONE",
     })
 
     live = env.get("ZIPTASTIC_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("ZIPTASTIC_APIKEY"),
         }
         client = ZiptasticSDK(merged_opts)
         return {

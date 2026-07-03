@@ -75,12 +75,14 @@ function get_location_by_zipcode_direct_setup($mockres)
     $env = Runner::env_override([
         "ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID" => [],
         "ZIPTASTIC_TEST_LIVE" => "FALSE",
+        "ZIPTASTIC_APIKEY" => "NONE",
     ]);
 
     $live = $env["ZIPTASTIC_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["ZIPTASTIC_APIKEY"],
         ];
         $client = new ZiptasticSDK($merged_opts);
         return [

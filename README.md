@@ -1,20 +1,8 @@
 # Ziptastic SDK
 
-Look up the city, state, and country for any US ZIP code with a single GET request
+Ziptastic API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Ziptastic API
-
-[Ziptastic](http://ziptasticapi.com) is a small, free HTTP API that turns a US ZIP code into the matching country, state, and city. It was originally created by Thomas Schultz and was later rewritten in PHP on top of the SLIM framework by Josh Strange.
-
-What you get from the API:
-
-- A single endpoint of the form `http://ZiptasticAPI.com/{ZIPCODE}` that returns geographic location data for a US ZIP code.
-- JSON response fields covering country, state, and city for the requested ZIP.
-- Optional JSONP support via a `?callback={name}` query parameter for use directly from the browser.
-
-The service is unauthenticated, CORS-enabled, and intended for straightforward client- or server-side ZIP-to-location lookups.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install ziptastic-sdk
 luarocks install ziptastic-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ZiptasticSDK } from 'ziptastic'
 
-const client = new ZiptasticSDK({})
+const client = new ZiptasticSDK({
+  apikey: process.env.ZIPTASTIC_APIKEY,
+})
 
+// Load getlocationbyzipcode data
+const getlocationbyzipcode = await client.GetLocationByZipcode().load({})
+console.log(getlocationbyzipcode.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **GetLocationByZipcode** | Retrieves the country, state, and city for a US ZIP code via `GET /{zipcode}` (optionally with `?callback=` for JSONP). | `/{zipcode}` |
+| **GetLocationByZipcode** |  | `/{zipcode}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from ziptastic_sdk import ZiptasticSDK
 
-client = ZiptasticSDK({})
+client = ZiptasticSDK({
+    "apikey": os.environ.get("ZIPTASTIC_APIKEY"),
+})
 
 
 # Load a specific getlocationbyzipcode
-getlocationbyzipcode, err = client.GetLocationByZipcode(None).load(
-    {"id": "example_id"}, None
-)
+getlocationbyzipcode, err = client.GetLocationByZipcode().load({"id": "example_id"})
+print(getlocationbyzipcode)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ getlocationbyzipcode, err = client.GetLocationByZipcode(None).load(
 <?php
 require_once 'ziptastic_sdk.php';
 
-$client = new ZiptasticSDK([]);
+$client = new ZiptasticSDK([
+    "apikey" => getenv("ZIPTASTIC_APIKEY"),
+]);
 
 
 // Load a specific getlocationbyzipcode
-[$getlocationbyzipcode, $err] = $client->GetLocationByZipcode(null)->load(
-    ["id" => "example_id"], null
-);
+[$getlocationbyzipcode, $err] = $client->GetLocationByZipcode()->load(["id" => "example_id"]);
+print_r($getlocationbyzipcode);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new ZiptasticSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/ziptastic-sdk/go"
 
-client := sdk.NewZiptasticSDK(map[string]any{})
+client := sdk.NewZiptasticSDK(map[string]any{
+    "apikey": os.Getenv("ZIPTASTIC_APIKEY"),
+})
 
+// Load getlocationbyzipcode data
+getlocationbyzipcode, err := client.GetLocationByZipcode(nil).Load(map[string]any{}, nil)
+fmt.Println(getlocationbyzipcode)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewZiptasticSDK(map[string]any{})
 ```ruby
 require_relative "Ziptastic_sdk"
 
-client = ZiptasticSDK.new({})
+client = ZiptasticSDK.new({
+  "apikey" => ENV["ZIPTASTIC_APIKEY"],
+})
 
 
 # Load a specific getlocationbyzipcode
-getlocationbyzipcode, err = client.GetLocationByZipcode(nil).load(
-  { "id" => "example_id" }, nil
-)
+getlocationbyzipcode, err = client.GetLocationByZipcode().load({ "id" => "example_id" })
+puts getlocationbyzipcode
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ getlocationbyzipcode, err = client.GetLocationByZipcode(nil).load(
 ```lua
 local sdk = require("ziptastic_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("ZIPTASTIC_APIKEY"),
+})
 
 
 -- Load a specific getlocationbyzipcode
-local getlocationbyzipcode, err = client:GetLocationByZipcode(nil):load(
-  { id = "example_id" }, nil
-)
+local getlocationbyzipcode, err = client:GetLocationByZipcode():load({ id = "example_id" })
+print(getlocationbyzipcode)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.GetLocationByZipcode().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ZiptasticSDK.test(None, None)
-result, err = client.GetLocationByZipcode(None).load(
-    {"id": "test01"}, None
-)
+client = ZiptasticSDK.test()
+result, err = client.GetLocationByZipcode().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ZiptasticSDK::test(null, null);
-[$result, $err] = $client->GetLocationByZipcode(null)->load(
-    ["id" => "test01"], null
-);
+$client = ZiptasticSDK::test();
+[$result, $err] = $client->GetLocationByZipcode()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.GetLocationByZipcode(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.GetLocationByZipcode(nil).Load(
 ### Ruby
 
 ```ruby
-client = ZiptasticSDK.test(nil, nil)
-result, err = client.GetLocationByZipcode(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ZiptasticSDK.test
+result, err = client.GetLocationByZipcode().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:GetLocationByZipcode(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:GetLocationByZipcode():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,10 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Ziptastic API
-
-- Upstream: [http://ziptasticapi.com](http://ziptasticapi.com)
 
 ---
 

@@ -17,22 +17,7 @@ main: {
       ]
       title: "Ziptastic API"
       version: "1.0.0"
-      tagline: "Look up the city, state, and country for any US ZIP code with a single GET request"
-      homepage: "http://ziptasticapi.com"
-      docs_url: "http://ziptasticapi.com"
-      about_md: `[Ziptastic](http://ziptasticapi.com) is a small, free HTTP API that turns a US ZIP code into the matching country, state, and city. It was originally created by Thomas Schultz and was later rewritten in PHP on top of the SLIM framework by Josh Strange.
-
-What you get from the API:
-
-- A single endpoint of the form \`http://ZiptasticAPI.com/{ZIPCODE}\` that returns geographic location data for a US ZIP code.
-- JSON response fields covering country, state, and city for the requested ZIP.
-- Optional JSONP support via a \`?callback={name}\` query parameter for use directly from the browser.
-
-The service is unauthenticated, CORS-enabled, and intended for straightforward client- or server-side ZIP-to-location lookups.`
-      entity_desc: {
-        get_location_by_zipcode: "Retrieves the country, state, and city for a US ZIP code via `GET /{zipcode}` (optionally with `?callback=` for JSONP)."
-      }
-      auth: false
     }
   }
 }
+

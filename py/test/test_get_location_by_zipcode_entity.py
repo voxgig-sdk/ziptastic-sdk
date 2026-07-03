@@ -91,6 +91,7 @@ def _get_location_by_zipcode_basic_setup(extra):
         "ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID": idmap,
         "ZIPTASTIC_TEST_LIVE": "FALSE",
         "ZIPTASTIC_TEST_EXPLAIN": "FALSE",
+        "ZIPTASTIC_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _get_location_by_zipcode_basic_setup(extra):
     if env.get("ZIPTASTIC_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("ZIPTASTIC_APIKEY"),
             },
             extra or {},
         ])

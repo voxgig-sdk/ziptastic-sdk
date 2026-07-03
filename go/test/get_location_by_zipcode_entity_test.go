@@ -117,6 +117,7 @@ func get_location_by_zipcodeBasicSetup(extra map[string]any) *entityTestSetup {
 		"ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID": idmap,
 		"ZIPTASTIC_TEST_LIVE":      "FALSE",
 		"ZIPTASTIC_TEST_EXPLAIN":   "FALSE",
+		"ZIPTASTIC_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID"])
@@ -127,6 +128,7 @@ func get_location_by_zipcodeBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["ZIPTASTIC_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["ZIPTASTIC_APIKEY"],
 			},
 			extra,
 		})
