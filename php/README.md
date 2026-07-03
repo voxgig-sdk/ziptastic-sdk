@@ -10,7 +10,7 @@ The PHP SDK for the Ziptastic API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/ziptastic-sdk
+composer require voxgig-sdk/ziptastic
 ```
 
 

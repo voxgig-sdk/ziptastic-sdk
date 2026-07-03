@@ -10,13 +10,13 @@ The Ruby SDK for the Ziptastic API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install ziptastic-sdk
+gem install voxgig-sdk-ziptastic
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "ziptastic-sdk"
+gem "voxgig-sdk-ziptastic"
 ```
 
 Then run:

@@ -10,7 +10,7 @@ The Python SDK for the Ziptastic API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install ziptastic-sdk
+pip install voxgig-sdk-ziptastic
 ```
 
 Or install from source:

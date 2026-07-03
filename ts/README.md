@@ -10,7 +10,7 @@ The TypeScript SDK for the Ziptastic API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install ziptastic
+npm install @voxgig-sdk/ziptastic
 ```
 ## Tutorial: your first API call
 

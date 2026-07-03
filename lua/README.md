@@ -10,7 +10,7 @@ The Lua SDK for the Ziptastic API — an entity-oriented client using Lua conven
 
 ## Install
 ```bash
-luarocks install ziptastic-sdk
+luarocks install voxgig-sdk-ziptastic
 ```
 
 If the module is not yet published, add the source directory to
