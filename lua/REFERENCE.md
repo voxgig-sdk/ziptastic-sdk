@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## GetLocationByZipcodeEntity
 
 ```lua
-local get_location_by_zipcode = client:get_location_by_zipcode(nil)
+local get_location_by_zipcode = client:GetLocationByZipcode(nil)
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ local get_location_by_zipcode = client:get_location_by_zipcode(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:get_location_by_zipcode():load({ id = "get_location_by_zipcode_id" })
+local result, err = client:GetLocationByZipcode():load({ id = "get_location_by_zipcode_id" })
 ```
 
 ### Common Methods

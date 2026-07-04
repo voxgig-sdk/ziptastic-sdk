@@ -233,10 +233,10 @@ class ZiptasticSDK
 
     private $_get_location_by_zipcode = null;
 
-    // Idiomatic facade: $client->get_location_by_zipcode()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetLocationByZipcode() (PHP method
-    // names are case-insensitive).
-    public function get_location_by_zipcode($data = null)
+    // Canonical facade: $client->GetLocationByZipcode()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_location_by_zipcode()
+    // resolves here too.
+    public function GetLocationByZipcode($data = null)
     {
         require_once __DIR__ . '/entity/get_location_by_zipcode_entity.php';
         if ($data === null) {

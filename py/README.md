@@ -33,10 +33,12 @@ client = ZiptasticSDK()
 
 ### 3. Load a getlocationbyzipcode
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.getlocationbyzipcode.load({"id": "example_id"})
-    print(result)
+    getlocationbyzipcode = client.GetLocationByZipcode().load({"id": "example_id"})
+    print(getlocationbyzipcode)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ZiptasticSDK.test()
 
-result = client.getlocationbyzipcode.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+getlocationbyzipcode = client.GetLocationByZipcode().load({"id": "test01"})
+# getlocationbyzipcode contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -220,7 +223,7 @@ API path: `/{zipcode}`
 
 ### GetLocationByZipcode
 
-Create an instance: `const get_location_by_zipcode = client.get_location_by_zipcode`
+Create an instance: `get_location_by_zipcode = client.GetLocationByZipcode()`
 
 #### Operations
 
@@ -238,8 +241,8 @@ Create an instance: `const get_location_by_zipcode = client.get_location_by_zipc
 
 #### Example: Load
 
-```ts
-const get_location_by_zipcode = await client.get_location_by_zipcode.load({ id: 'get_location_by_zipcode_id' })
+```python
+get_location_by_zipcode = client.GetLocationByZipcode().load({"id": "get_location_by_zipcode_id"})
 ```
 
 
@@ -313,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-getlocationbyzipcode = client.getlocationbyzipcode
+getlocationbyzipcode = client.GetLocationByZipcode()
 getlocationbyzipcode.load({"id": "example_id"})
 
 # getlocationbyzipcode.data_get() now returns the loaded getlocationbyzipcode data

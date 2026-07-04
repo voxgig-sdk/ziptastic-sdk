@@ -208,13 +208,7 @@ class ZiptasticSDK
   end
 
 
-  # Idiomatic facade: client.get_location_by_zipcode.list / client.get_location_by_zipcode.load({ "id" => ... })
-  def get_location_by_zipcode
-    require_relative 'entity/get_location_by_zipcode_entity'
-    @get_location_by_zipcode ||= GetLocationByZipcodeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get_location_by_zipcode instead.
+  # Canonical facade: client.GetLocationByZipcode.list / client.GetLocationByZipcode.load({ "id" => ... })
   def GetLocationByZipcode(data = nil)
     require_relative 'entity/get_location_by_zipcode_entity'
     GetLocationByZipcodeEntity.new(self, data)

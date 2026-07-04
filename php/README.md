@@ -33,9 +33,10 @@ $client = new ZiptasticSDK();
 
 ```php
 try {
-    $result = $client->getlocationbyzipcode()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare GetLocationByZipcode record (throws on error).
+    $getlocationbyzipcode = $client->GetLocationByZipcode()->load(["id" => "example_id"]);
+    print_r($getlocationbyzipcode);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = ZiptasticSDK::test();
+$client = ZiptasticSDK::test([
+    "entity" => ["getlocationbyzipcode" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->getlocationbyzipcode()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$getlocationbyzipcode = $client->GetLocationByZipcode()->load(["id" => "test01"]);
+print_r($getlocationbyzipcode);
 ```
 
 ### Use a custom fetch function
@@ -225,7 +230,7 @@ API path: `/{zipcode}`
 
 ### GetLocationByZipcode
 
-Create an instance: `const get_location_by_zipcode = client.get_location_by_zipcode`
+Create an instance: `$get_location_by_zipcode = $client->GetLocationByZipcode();`
 
 #### Operations
 
@@ -243,8 +248,9 @@ Create an instance: `const get_location_by_zipcode = client.get_location_by_zipc
 
 #### Example: Load
 
-```ts
-const get_location_by_zipcode = await client.get_location_by_zipcode.load({ id: 'get_location_by_zipcode_id' })
+```php
+// load() returns the bare GetLocationByZipcode record (throws on error).
+$get_location_by_zipcode = $client->GetLocationByZipcode()->load(["id" => "get_location_by_zipcode_id"]);
 ```
 
 
@@ -319,7 +325,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$getlocationbyzipcode = $client->getlocationbyzipcode();
+$getlocationbyzipcode = $client->GetLocationByZipcode();
 $getlocationbyzipcode->load(["id" => "example_id"]);
 
 // $getlocationbyzipcode->dataGet() now returns the loaded getlocationbyzipcode data

@@ -32,8 +32,9 @@ client = ZiptasticSDK.new
 
 ```ruby
 begin
-  result = client.getlocationbyzipcode.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare GetLocationByZipcode record (raises on error).
+  getlocationbyzipcode = client.GetLocationByZipcode.load({ "id" => "example_id" })
+  puts getlocationbyzipcode
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = ZiptasticSDK.test
+client = ZiptasticSDK.test({
+  "entity" => { "getlocationbyzipcode" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.getlocationbyzipcode.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+getlocationbyzipcode = client.GetLocationByZipcode.load({ "id" => "test01" })
+puts getlocationbyzipcode
 ```
 
 ### Use a custom fetch function
@@ -220,7 +225,7 @@ API path: `/{zipcode}`
 
 ### GetLocationByZipcode
 
-Create an instance: `const get_location_by_zipcode = client.get_location_by_zipcode`
+Create an instance: `get_location_by_zipcode = client.GetLocationByZipcode`
 
 #### Operations
 
@@ -238,8 +243,9 @@ Create an instance: `const get_location_by_zipcode = client.get_location_by_zipc
 
 #### Example: Load
 
-```ts
-const get_location_by_zipcode = await client.get_location_by_zipcode.load({ id: 'get_location_by_zipcode_id' })
+```ruby
+# load returns the bare GetLocationByZipcode record (raises on error).
+get_location_by_zipcode = client.GetLocationByZipcode.load({ "id" => "get_location_by_zipcode_id" })
 ```
 
 
@@ -314,7 +320,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-getlocationbyzipcode = client.getlocationbyzipcode
+getlocationbyzipcode = client.GetLocationByZipcode
 getlocationbyzipcode.load({ "id" => "example_id" })
 
 # getlocationbyzipcode.data_get now returns the loaded getlocationbyzipcode data

@@ -220,25 +220,15 @@ class ZiptasticSDK:
         }
 
 
-    @property
-    def get_location_by_zipcode(self):
-        """Idiomatic facade: client.get_location_by_zipcode.list() / client.get_location_by_zipcode.load({"id": ...})."""
-        from entity.get_location_by_zipcode_entity import GetLocationByZipcodeEntity
-        cached = getattr(self, "_get_location_by_zipcode", None)
-        if cached is None:
-            cached = GetLocationByZipcodeEntity(self, None)
-            self._get_location_by_zipcode = cached
-        return cached
-
-    def GetLocationByZipcode(self, data=None):
-        # Deprecated: use client.get_location_by_zipcode instead.
+    def GetLocationByZipcode(self, data=None) -> "GetLocationByZipcodeEntity":
+        """Entity factory: client.GetLocationByZipcode().list({}) / client.GetLocationByZipcode().load({"id": ...})."""
         from entity.get_location_by_zipcode_entity import GetLocationByZipcodeEntity
         return GetLocationByZipcodeEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ZiptasticSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class ZiptasticSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.get_location_by_zipcode_entity import GetLocationByZipcodeEntity

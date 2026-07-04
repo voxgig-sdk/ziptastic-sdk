@@ -109,7 +109,7 @@ Alias for `ZiptasticSDK.test()`.
 ## GetLocationByZipcodeEntity
 
 ```ts
-const get_location_by_zipcode = client.get_location_by_zipcode
+const get_location_by_zipcode = client.GetLocationByZipcode()
 ```
 
 ### Fields
@@ -127,7 +127,7 @@ const get_location_by_zipcode = client.get_location_by_zipcode
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.get_location_by_zipcode.load({ id: 'get_location_by_zipcode_id' })
+const result = await client.GetLocationByZipcode().load({ id: 'get_location_by_zipcode_id' })
 ```
 
 ### Common Methods

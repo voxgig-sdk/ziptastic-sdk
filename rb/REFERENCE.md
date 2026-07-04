@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## GetLocationByZipcodeEntity
 
 ```ruby
-get_location_by_zipcode = client.get_location_by_zipcode
+get_location_by_zipcode = client.GetLocationByZipcode
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ get_location_by_zipcode = client.get_location_by_zipcode
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.get_location_by_zipcode.load({ "id" => "get_location_by_zipcode_id" })
+result = client.GetLocationByZipcode.load({ "id" => "get_location_by_zipcode_id" })
 ```
 
 ### Common Methods

@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## GetLocationByZipcodeEntity
 
 ```python
-get_location_by_zipcode = client.get_location_by_zipcode
+get_location_by_zipcode = client.GetLocationByZipcode()
 ```
 
 ### Fields
@@ -98,7 +98,7 @@ get_location_by_zipcode = client.get_location_by_zipcode
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.get_location_by_zipcode.load({"id": "get_location_by_zipcode_id"})
+result = client.GetLocationByZipcode().load({"id": "get_location_by_zipcode_id"})
 ```
 
 ### Common Methods

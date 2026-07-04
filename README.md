@@ -26,9 +26,9 @@ import { ZiptasticSDK } from '@voxgig-sdk/ziptastic'
 
 const client = new ZiptasticSDK()
 
-// Load getlocationbyzipcode data
-const getlocationbyzipcode = await client.getlocationbyzipcode.load({})
-console.log(getlocationbyzipcode.data)
+// Load getlocationbyzipcode data (returns a GetLocationByZipcode)
+const getlocationbyzipcode = await client.GetLocationByZipcode().load()
+console.log(getlocationbyzipcode)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from ziptastic_sdk import ZiptasticSDK
 client = ZiptasticSDK()
 
 
-# Load a specific getlocationbyzipcode
-getlocationbyzipcode = client.getlocationbyzipcode.load({"id": "example_id"})
+# Load a specific getlocationbyzipcode (returns the record, raises on error)
+getlocationbyzipcode = client.GetLocationByZipcode().load({"id": "example_id"})
 print(getlocationbyzipcode)
 ```
 
@@ -98,8 +98,8 @@ require_once 'ziptastic_sdk.php';
 $client = new ZiptasticSDK();
 
 
-// Load a specific getlocationbyzipcode
-$getlocationbyzipcode = $client->getlocationbyzipcode()->load(["id" => "example_id"]);
+// Load a specific getlocationbyzipcode (returns the bare record; throws on error)
+$getlocationbyzipcode = $client->GetLocationByZipcode()->load(["id" => "example_id"]);
 print_r($getlocationbyzipcode);
 ```
 
@@ -123,8 +123,8 @@ require_relative "Ziptastic_sdk"
 client = ZiptasticSDK.new
 
 
-# Load a specific getlocationbyzipcode
-getlocationbyzipcode = client.getlocationbyzipcode.load({ "id" => "example_id" })
+# Load a specific getlocationbyzipcode (returns the bare record; raises on error)
+getlocationbyzipcode = client.GetLocationByZipcode.load({ "id" => "example_id" })
 puts getlocationbyzipcode
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific getlocationbyzipcode
-local getlocationbyzipcode, err = client:getlocationbyzipcode():load({ id = "example_id" })
+local getlocationbyzipcode, err = client:GetLocationByZipcode():load({ id = "example_id" })
 print(getlocationbyzipcode)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ZiptasticSDK.test()
-const result = await client.getlocationbyzipcode.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const getlocationbyzipcode = await client.GetLocationByZipcode().load({ id: 'test01' })
+// getlocationbyzipcode is a bare GetLocationByZipcode populated with mock data
+console.log(getlocationbyzipcode)
 ```
 
 ### Python
 
 ```python
 client = ZiptasticSDK.test()
-result = client.getlocationbyzipcode.load({"id": "test01"})
+getlocationbyzipcode = client.GetLocationByZipcode().load({"id": "test01"})
+print(getlocationbyzipcode)
 ```
 
 ### PHP
 
 ```php
-$client = ZiptasticSDK::test();
-$result = $client->getlocationbyzipcode()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ZiptasticSDK::test([
+    "entity" => ["getlocationbyzipcode" => ["test01" => ["id" => "test01"]]],
+]);
+$getlocationbyzipcode = $client->GetLocationByZipcode()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.GetLocationByZipcode(nil).Load(
 ### Ruby
 
 ```ruby
-client = ZiptasticSDK.test
-result = client.getlocationbyzipcode.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ZiptasticSDK.test({
+  "entity" => { "getlocationbyzipcode" => { "test01" => { "id" => "test01" } } },
+})
+getlocationbyzipcode = client.GetLocationByZipcode.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:getlocationbyzipcode():load({ id = "test01" })
+local result, err = client:GetLocationByZipcode():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

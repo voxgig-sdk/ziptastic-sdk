@@ -204,14 +204,7 @@ class ZiptasticSDK {
 
 
 
-  _get_location_by_zipcode?: GetLocationByZipcodeEntity
-
-  // Idiomatic facade: `client.get_location_by_zipcode.list()` / `client.get_location_by_zipcode.load({ id })`.
-  get get_location_by_zipcode(): GetLocationByZipcodeEntity {
-    return (this._get_location_by_zipcode ??= new GetLocationByZipcodeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_location_by_zipcode` instead. */
+  // Entity access: `client.GetLocationByZipcode().list()` / `client.GetLocationByZipcode().load({ id })`.
   GetLocationByZipcode(data?: any) {
     const self = this
     return new GetLocationByZipcodeEntity(self,data)

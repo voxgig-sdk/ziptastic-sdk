@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## GetLocationByZipcodeEntity
 
 ```php
-$get_location_by_zipcode = $client->get_location_by_zipcode();
+$get_location_by_zipcode = $client->GetLocationByZipcode();
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ $get_location_by_zipcode = $client->get_location_by_zipcode();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->get_location_by_zipcode()->load(["id" => "get_location_by_zipcode_id"]);
+$result = $client->GetLocationByZipcode()->load(["id" => "get_location_by_zipcode_id"]);
 ```
 
 ### Common Methods
