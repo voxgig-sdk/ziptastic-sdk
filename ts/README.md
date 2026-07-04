@@ -9,9 +9,12 @@ The TypeScript SDK for the Ziptastic API — a type-safe, entity-oriented client
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/ziptastic
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/ziptastic-sdk/releases](https://github.com/voxgig-sdk/ziptastic-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ZiptasticSDK } from 'ziptastic'
+import { ZiptasticSDK } from '@voxgig-sdk/ziptastic'
 
-const client = new ZiptasticSDK({
-  apikey: process.env.ZIPTASTIC_APIKEY,
-})
+const client = new ZiptasticSDK()
 ```
 
 ### 3. Load a getlocationbyzipcode
 
 ```ts
-const result = await client.GetLocationByZipcode().load({ id: 'example_id' })
+const result = await client.getlocationbyzipcode.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ZiptasticSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.getlocationbyzipcode.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new ZiptasticSDK({ apikey: '...' })
+const client = new ZiptasticSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.getlocationbyzipcode
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new ZiptasticSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -134,7 +134,6 @@ Create a `.env.local` file at the project root:
 
 ```
 ZIPTASTIC_TEST_LIVE=TRUE
-ZIPTASTIC_APIKEY=<your-key>
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new ZiptasticSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new ZiptasticSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -268,7 +265,7 @@ API path: `/{zipcode}`
 
 ### GetLocationByZipcode
 
-Create an instance: `const get_location_by_zipcode = client.GetLocationByZipcode()`
+Create an instance: `const get_location_by_zipcode = client.get_location_by_zipcode`
 
 #### Operations
 
@@ -287,7 +284,7 @@ Create an instance: `const get_location_by_zipcode = client.GetLocationByZipcode
 #### Example: Load
 
 ```ts
-const get_location_by_zipcode = await client.GetLocationByZipcode().load({ id: 'get_location_by_zipcode_id' })
+const get_location_by_zipcode = await client.get_location_by_zipcode.load({ id: 'get_location_by_zipcode_id' })
 ```
 
 
@@ -348,7 +345,7 @@ ziptastic/
 Import the SDK from the package root:
 
 ```ts
-import { ZiptasticSDK } from 'ziptastic'
+import { ZiptasticSDK } from '@voxgig-sdk/ziptastic'
 ```
 
 ### Entity state
@@ -358,11 +355,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const getlocationbyzipcode = client.getlocationbyzipcode
+await getlocationbyzipcode.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// getlocationbyzipcode.data() now returns the loaded getlocationbyzipcode data
+// getlocationbyzipcode.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

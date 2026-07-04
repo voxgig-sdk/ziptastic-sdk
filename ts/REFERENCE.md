@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `ZiptasticSDK.test()`.
 ## GetLocationByZipcodeEntity
 
 ```ts
-const get_location_by_zipcode = client.GetLocationByZipcode()
+const get_location_by_zipcode = client.get_location_by_zipcode
 ```
 
 ### Fields
@@ -128,7 +127,7 @@ const get_location_by_zipcode = client.GetLocationByZipcode()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetLocationByZipcode().load({ id: 'get_location_by_zipcode_id' })
+const result = await client.get_location_by_zipcode.load({ id: 'get_location_by_zipcode_id' })
 ```
 
 ### Common Methods

@@ -245,6 +245,9 @@ func (sdk *ZiptasticSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// GetLocationByZipcode returns a GetLocationByZipcode entity bound to this client.
+// Idiomatic usage: client.GetLocationByZipcode(nil).List(nil, nil) or
+// client.GetLocationByZipcode(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ZiptasticSDK) GetLocationByZipcode(data map[string]any) ZiptasticEntity {
 	return NewGetLocationByZipcodeEntityFunc(sdk, data)
 }

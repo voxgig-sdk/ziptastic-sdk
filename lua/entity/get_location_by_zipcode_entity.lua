@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GetLocationByZipcodeLoadMatch
+---@param ctrl? table
+---@return GetLocationByZipcode
+---@return string? err
 function GetLocationByZipcodeEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

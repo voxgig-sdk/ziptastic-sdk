@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  GetLocationByZipcode,
+  GetLocationByZipcodeLoadMatch,
+} from '../ZiptasticTypes'
 
 // TODO: needs Entity superclass
-class GetLocationByZipcodeEntity extends ZiptasticEntityBase {
+class GetLocationByZipcodeEntity extends ZiptasticEntityBase<GetLocationByZipcode> {
 
   constructor(client: ZiptasticSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class GetLocationByZipcodeEntity extends ZiptasticEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: GetLocationByZipcodeLoadMatch, ctrl?: Control): Promise<GetLocationByZipcode> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class GetLocationByZipcodeEntity extends ZiptasticEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GetLocationByZipcode> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

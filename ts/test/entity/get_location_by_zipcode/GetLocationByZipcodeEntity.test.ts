@@ -111,7 +111,6 @@ function basicSetup(extra?: any) {
     'ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID': idmap,
     'ZIPTASTIC_TEST_LIVE': 'FALSE',
     'ZIPTASTIC_TEST_EXPLAIN': 'FALSE',
-    'ZIPTASTIC_APIKEY': 'NONE',
   })
 
   idmap = env['ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID']
@@ -121,7 +120,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ZiptasticSDK(merge([
       {
-        apikey: env.ZIPTASTIC_APIKEY,
       },
       extra
     ]))

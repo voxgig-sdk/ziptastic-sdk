@@ -2,6 +2,8 @@
 
 import { GetLocationByZipcodeEntity } from './entity/GetLocationByZipcodeEntity'
 
+export type * from './ZiptasticTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class ZiptasticSDK {
 
 
 
+  _get_location_by_zipcode?: GetLocationByZipcodeEntity
+
+  // Idiomatic facade: `client.get_location_by_zipcode.list()` / `client.get_location_by_zipcode.load({ id })`.
+  get get_location_by_zipcode(): GetLocationByZipcodeEntity {
+    return (this._get_location_by_zipcode ??= new GetLocationByZipcodeEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_location_by_zipcode` instead. */
   GetLocationByZipcode(data?: any) {
     const self = this
     return new GetLocationByZipcodeEntity(self,data)

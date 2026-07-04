@@ -70,14 +70,12 @@ function get_location_by_zipcode_direct_setup(mockres)
   local env = runner.env_override({
     ["ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID"] = {},
     ["ZIPTASTIC_TEST_LIVE"] = "FALSE",
-    ["ZIPTASTIC_APIKEY"] = "NONE",
   })
 
   local live = env["ZIPTASTIC_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["ZIPTASTIC_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:get_location_by_zipcode():list() / client:get_location_by_zipcode():load({ id = ... })
+function ZiptasticSDK:get_location_by_zipcode(data)
+  local EntityMod = require("entity.get_location_by_zipcode_entity")
+  if data == nil then
+    if self._get_location_by_zipcode == nil then
+      self._get_location_by_zipcode = EntityMod.new(self, nil)
+    end
+    return self._get_location_by_zipcode
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get_location_by_zipcode() instead.
 function ZiptasticSDK:GetLocationByZipcode(data)
   local EntityMod = require("entity.get_location_by_zipcode_entity")
   return EntityMod.new(self, data)

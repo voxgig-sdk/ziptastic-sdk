@@ -42,8 +42,7 @@ class GetLocationByZipcodeEntityTest < Minitest::Test
     # LOAD
     get_location_by_zipcode_ref01_ent = client.GetLocationByZipcode(nil)
     get_location_by_zipcode_ref01_match_dt0 = {}
-    get_location_by_zipcode_ref01_data_dt0_loaded, err = get_location_by_zipcode_ref01_ent.load(get_location_by_zipcode_ref01_match_dt0, nil)
-    assert_nil err
+    get_location_by_zipcode_ref01_data_dt0_loaded = get_location_by_zipcode_ref01_ent.load(get_location_by_zipcode_ref01_match_dt0, nil)
     assert !get_location_by_zipcode_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def get_location_by_zipcode_basic_setup(extra)
     "ZIPTASTIC_TEST_GET_LOCATION_BY_ZIPCODE_ENTID" => idmap,
     "ZIPTASTIC_TEST_LIVE" => "FALSE",
     "ZIPTASTIC_TEST_EXPLAIN" => "FALSE",
-    "ZIPTASTIC_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def get_location_by_zipcode_basic_setup(extra)
   if env["ZIPTASTIC_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["ZIPTASTIC_APIKEY"],
       },
       extra || {},
     ])
