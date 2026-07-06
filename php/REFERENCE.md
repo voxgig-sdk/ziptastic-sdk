@@ -45,11 +45,11 @@ $client = ZiptasticSDK::test();
 
 Create a new `GetLocationByZipcodeEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): ZiptasticUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,9 +92,9 @@ $get_location_by_zipcode = $client->GetLocationByZipcode();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
+| `city` | `string` | No |  |
+| `country` | `string` | No |  |
+| `state` | `string` | No |  |
 
 ### Operations
 
@@ -108,19 +108,19 @@ $result = $client->GetLocationByZipcode()->load(["id" => "get_location_by_zipcod
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -129,7 +129,7 @@ Set the entity match criteria.
 Create a new `GetLocationByZipcodeEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

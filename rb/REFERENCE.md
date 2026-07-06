@@ -8,7 +8,7 @@ Complete API reference for the Ziptastic Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'ziptastic_sdk'
+require_relative 'Ziptastic_sdk'
 
 client = ZiptasticSDK.new(options)
 ```
@@ -93,9 +93,9 @@ get_location_by_zipcode = client.GetLocationByZipcode
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
+| `city` | `String` | No |  |
+| `country` | `String` | No |  |
+| `state` | `String` | No |  |
 
 ### Operations
 

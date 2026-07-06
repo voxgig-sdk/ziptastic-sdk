@@ -221,7 +221,7 @@ class ZiptasticSDK:
 
 
     def GetLocationByZipcode(self, data=None) -> "GetLocationByZipcodeEntity":
-        """Entity factory: client.GetLocationByZipcode().list({}) / client.GetLocationByZipcode().load({"id": ...})."""
+        """Entity factory: client.GetLocationByZipcode().list() / client.GetLocationByZipcode().load({"id": ...})."""
         from entity.get_location_by_zipcode_entity import GetLocationByZipcodeEntity
         return GetLocationByZipcodeEntity(self, data)
 

@@ -90,9 +90,9 @@ local get_location_by_zipcode = client:GetLocationByZipcode(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
+| `city` | `string` | No |  |
+| `country` | `string` | No |  |
+| `state` | `string` | No |  |
 
 ### Operations
 

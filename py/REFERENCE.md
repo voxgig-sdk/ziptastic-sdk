@@ -87,9 +87,9 @@ get_location_by_zipcode = client.GetLocationByZipcode()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
+| `city` | `str` | No |  |
+| `country` | `str` | No |  |
+| `state` | `str` | No |  |
 
 ### Operations
 
