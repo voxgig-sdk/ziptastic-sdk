@@ -16,9 +16,9 @@ main: {
           url: "http://ziptasticapi.com"
         }
       ]
+      summary: "Ziptastic API allows users to retrieve location information based on the zip code provided."
       title: "Ziptastic API"
       version: "1.0.0"
+      website: "http://ziptasticapi.com"
     }
   }
-}
-

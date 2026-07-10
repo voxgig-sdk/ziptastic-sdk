@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single getlocationbyzipcode — the value is the loaded record.
-    getlocationbyzipcode, err := client.GetLocationByZipcode(nil).Load(map[string]any{"id": "example"}, nil)
+    // Load a single getLocationByZipcode — the value is the loaded record.
+    getLocationByZipcode, err := client.GetLocationByZipcode(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(getlocationbyzipcode)
+    fmt.Println(getLocationByZipcode)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-getlocationbyzipcode, err := client.GetLocationByZipcode(nil).Load(
+getLocationByZipcode, err := client.GetLocationByZipcode(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(getlocationbyzipcode) // the returned mock data
+fmt.Println(getLocationByZipcode) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    getlocationbyzipcode, err := client.GetLocationByZipcode(nil).Load(map[string]any{"id": "example_id"}, nil)
+    getLocationByZipcode, err := client.GetLocationByZipcode(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil { /* handle */ }
-    // getlocationbyzipcode is the returned record
+    // getLocationByZipcode is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -273,7 +273,7 @@ API path: `/{zipcode}`
 
 ### GetLocationByZipcode
 
-Create an instance: `get_location_by_zipcode := client.GetLocationByZipcode(nil)`
+Create an instance: `getLocationByZipcode := client.GetLocationByZipcode(nil)`
 
 #### Operations
 
@@ -292,11 +292,11 @@ Create an instance: `get_location_by_zipcode := client.GetLocationByZipcode(nil)
 #### Example: Load
 
 ```go
-get_location_by_zipcode, err := client.GetLocationByZipcode(nil).Load(map[string]any{"id": "get_location_by_zipcode_id"}, nil)
+getLocationByZipcode, err := client.GetLocationByZipcode(nil).Load(map[string]any{"id": "get_location_by_zipcode_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(get_location_by_zipcode) // the loaded record
+fmt.Println(getLocationByZipcode) // the loaded record
 ```
 
 

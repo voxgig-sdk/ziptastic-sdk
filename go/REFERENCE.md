@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## GetLocationByZipcodeEntity
 
 ```go
-get_location_by_zipcode := client.GetLocationByZipcode(nil)
+getLocationByZipcode := client.GetLocationByZipcode(nil)
+fmt.Println(getLocationByZipcode.GetName()) // "get_location_by_zipcode"
 ```
 
 ### Fields
@@ -109,6 +110,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.GetLocationByZipcode(nil).Load(map[string]any{"id": "get_location_by_zipcode_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

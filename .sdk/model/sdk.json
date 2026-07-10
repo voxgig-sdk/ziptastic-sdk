@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -242,14 +239,17 @@
           "url": "https://ziptasticapi.com/"
         },
         "description": "Ziptastic API allows users to retrieve location information based on the zip code provided. It returns details such as the country, state, and city associated with each zip code, making it easy to integrate location lookup into applications.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Ziptastic API Server",
             "url": "http://ziptasticapi.com"
           }
         ],
+        "summary": "Ziptastic API allows users to retrieve location information based on the zip code provided.",
         "title": "Ziptastic API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "http://ziptasticapi.com"
       },
       "option": {},
       "target": {
@@ -302,6 +302,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -352,6 +355,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
