@@ -98,6 +98,13 @@ const Main = cmp(function Main(props: any) {
     : firstEntity
   const firstOps: any = (firstEntityObj && firstEntityObj.op) || {}
   const firstHas = (op: string) => !!(firstOps[op] && firstOps[op].active !== false)
+  const entityNoun = entityCount === 1 ? 'entity' : 'entities'
+  // The best single example expression this SDK can actually run, for the
+  // tutorial/REPL walkthroughs (never demonstrates an unsupported op).
+  const firstExampleExpr =
+    firstHas('list') ? `list ${firstEntity}` :
+    firstHas('load') ? `load 1 ${firstEntity}` :
+    firstHas('update') ? `update '{id:1}' ${firstEntity}` : ':help'
 
   // ---- Examples block (up front) -------------------------------------------
   const ex: string[] = []
@@ -119,11 +126,11 @@ const Main = cmp(function Main(props: any) {
   }
   ex.push('')
   ex.push('# 4. Override the API base URL for a single call')
-  ex.push(`${baseEnv}=https://api.example.com ./${bin} ${firstHas('load') ? `load 1 ${firstEntity}` : `list ${firstEntity}`}`)
+  ex.push(`${baseEnv}=https://api.example.com ./${bin} ${firstExampleExpr}`)
   ex.push('')
   ex.push('# 5. No arguments -> interactive REPL')
   ex.push(`./${bin}`)
-  ex.push(`${model.name}> ${firstHas('list') ? `list ${firstEntity}` : ':help'}`)
+  ex.push(`${model.name}> ${firstExampleExpr}`)
   ex.push(`${model.name}> :quit`)
   const exampleBlock = ex.join('\n')
 
@@ -164,7 +171,7 @@ Configuration is read from the environment — nothing is written to disk:
 \`\`\`sh
 export ${apiKeyEnv}=sk_live_xxx            # API key
 export ${baseEnv}=https://api.example.com  # optional: override the API base URL
-./${bin} ${firstHas('list') ? `list ${firstEntity}` : ':help'}
+./${bin} ${firstExampleExpr}
 \`\`\`
 
 Both are injectable by a secrets vault, so the key never has to be typed inline.`)
@@ -176,7 +183,7 @@ evaluated as its own AQL expression:
 
 \`\`\`text
 $ ./${bin}
-${model.name}> ${firstHas('list') ? `list ${firstEntity}` : ':help'}
+${model.name}> ${firstExampleExpr}
 ${model.name}> :help
 ${model.name}> :quit
 \`\`\``)
@@ -191,7 +198,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
   howtos.push(`### Discover the available entities
 
 \`:help\` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes ${entityCount} of them.`)
+below — this SDK exposes ${entityCount} ${entityNoun}.`)
 
   const howtoBlock = howtos.join('\n\n')
 
@@ -227,17 +234,12 @@ ${exampleBlock}
    export ${apiKeyEnv}=sk_live_xxx
    \`\`\`
 
-3. **Run a query.** ${firstHas('list')
-    ? `Ask for the first page of \`${firstEntity}\` records:
+3. **Run a query.** Evaluate an AQL expression against the API (or run with no
+   arguments to open the REPL):
 
    \`\`\`sh
-   ./dist/*/${bin} list ${firstEntity}
-   \`\`\``
-    : `Open the REPL and type \`:help\` to see the available words:
-
-   \`\`\`sh
-   ./dist/*/${bin}
-   \`\`\``}
+   ./dist/*/${bin} ${firstExampleExpr}
+   \`\`\`
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
    type \`:help\` for the word and entity lists and \`:quit\` to leave.
@@ -293,7 +295,7 @@ Unset variables fall back to the SDK's built-in defaults.
 
 ### Entities
 
-The ${entityCount} entities this SDK exposes (any is valid as \`<entity>\`):
+The ${entityCount} ${entityNoun} this SDK exposes (any is valid as \`<entity>\`):
 
 ${entityList}
 

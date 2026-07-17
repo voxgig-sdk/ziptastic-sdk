@@ -151,7 +151,7 @@ JSON schemas are emitted by the SDK from the `Args` struct's `json` /
 
 ### Entities
 
-The 1 entities valid as the `entity` argument:
+The 1 entity valid as the `entity` argument:
 
 get_location_by_zipcode
 

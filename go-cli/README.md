@@ -24,7 +24,7 @@ ZIPTASTIC_BASE=https://api.example.com ./ziptastic-cli load 1 get_location_by_zi
 
 # 5. No arguments -> interactive REPL
 ./ziptastic-cli
-ziptastic> :help
+ziptastic> load 1 get_location_by_zipcode
 ziptastic> :quit
 ```
 
@@ -46,10 +46,11 @@ ziptastic> :quit
    export ZIPTASTIC_APIKEY=sk_live_xxx
    ```
 
-3. **Run a query.** Open the REPL and type `:help` to see the available words:
+3. **Run a query.** Evaluate an AQL expression against the API (or run with no
+   arguments to open the REPL):
 
    ```sh
-   ./dist/*/ziptastic-cli
+   ./dist/*/ziptastic-cli load 1 get_location_by_zipcode
    ```
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
@@ -76,7 +77,7 @@ Configuration is read from the environment — nothing is written to disk:
 ```sh
 export ZIPTASTIC_APIKEY=sk_live_xxx            # API key
 export ZIPTASTIC_BASE=https://api.example.com  # optional: override the API base URL
-./ziptastic-cli :help
+./ziptastic-cli load 1 get_location_by_zipcode
 ```
 
 Both are injectable by a secrets vault, so the key never has to be typed inline.
@@ -88,7 +89,7 @@ evaluated as its own AQL expression:
 
 ```text
 $ ./ziptastic-cli
-ziptastic> :help
+ziptastic> load 1 get_location_by_zipcode
 ziptastic> :help
 ziptastic> :quit
 ```
@@ -103,7 +104,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `:help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 1 of them.
+below — this SDK exposes 1 entity.
 
 ## Reference
 
@@ -150,7 +151,7 @@ Unset variables fall back to the SDK's built-in defaults.
 
 ### Entities
 
-The 1 entities this SDK exposes (any is valid as `<entity>`):
+The 1 entity this SDK exposes (any is valid as `<entity>`):
 
 get_location_by_zipcode
 
