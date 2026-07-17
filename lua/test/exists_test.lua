@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Ziptastic SDK exists test
 
 local sdk = require("ziptastic_sdk")
 
