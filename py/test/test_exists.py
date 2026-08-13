@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Ziptastic SDK exists test
 
 import pytest
 from ziptastic_sdk import ZiptasticSDK

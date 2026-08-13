@@ -34,7 +34,7 @@ client = ZiptasticSDK.new
 
 ```ruby
 begin
-  # load returns the bare GetLocationByZipcode record (raises on error).
+  # load returns the ENTITY — call data_get for the GetLocationByZipcode record (raises on error).
   getlocationbyzipcode = client.GetLocationByZipcode.load({ "id" => "example_id" })
   puts getlocationbyzipcode
 rescue => err
@@ -120,7 +120,8 @@ client = ZiptasticSDK.test({
   "entity" => { "getlocationbyzipcode" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 getlocationbyzipcode = client.GetLocationByZipcode.load({ "id" => "test01" })
 puts getlocationbyzipcode
 ```
@@ -271,7 +272,7 @@ Create an instance: `get_location_by_zipcode = client.GetLocationByZipcode`
 #### Example: Load
 
 ```ruby
-# load returns the bare GetLocationByZipcode record (raises on error).
+# load returns the ENTITY — call data_get for the GetLocationByZipcode record (raises on error).
 get_location_by_zipcode = client.GetLocationByZipcode.load({ "id" => "get_location_by_zipcode_id" })
 ```
 

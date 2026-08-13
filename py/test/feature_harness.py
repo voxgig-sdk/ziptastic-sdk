@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import ZiptasticControl
-from core.error import ZiptasticError
-from core.result import ZiptasticResult
-from core.spec import ZiptasticSpec
+from ziptastic_sdk.config import make_config
+from ziptastic_sdk.features import _make_feature
+from ziptastic_sdk.core.control import ZiptasticControl
+from ziptastic_sdk.core.error import ZiptasticError
+from ziptastic_sdk.core.result import ZiptasticResult
+from ziptastic_sdk.core.spec import ZiptasticSpec
 
 
 # True when this SDK was generated with the named feature.

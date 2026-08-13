@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = ZiptasticSDK.test()
 
 const getlocationbyzipcode = await client.GetLocationByZipcode().load({ id: 'test01' })
-// getlocationbyzipcode is a bare entity populated with mock response data
+// getlocationbyzipcode is the entity, populated with mock response data
+// — call getlocationbyzipcode.data() for the record itself
 console.log(getlocationbyzipcode)
 ```
 

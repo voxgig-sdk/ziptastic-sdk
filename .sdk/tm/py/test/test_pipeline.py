@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import ZiptasticSDK
-from core.error import ZiptasticError
-from core.result import ZiptasticResult
-from core.response import ZiptasticResponse
-from core.spec import ZiptasticSpec
-from feature.base_feature import ZiptasticBaseFeature
+from projectname_sdk.core.error import ZiptasticError
+from projectname_sdk.core.result import ZiptasticResult
+from projectname_sdk.core.response import ZiptasticResponse
+from projectname_sdk.core.spec import ZiptasticSpec
+from projectname_sdk.feature.base_feature import ZiptasticBaseFeature
 
 
 def _client():

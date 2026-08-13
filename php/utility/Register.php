@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ ZiptasticUtility::setRegistrar(function (ZiptasticUtility $u): void {
     $u->prepare_params = [ZiptasticPrepareParams::class, 'call'];
     $u->prepare_path = [ZiptasticPreparePath::class, 'call'];
     $u->prepare_query = [ZiptasticPrepareQuery::class, 'call'];
+    $u->graphql_body = [ZiptasticGraphql::class, 'body'];
+    $u->graphql_errors = [ZiptasticGraphql::class, 'errors'];
     $u->result_basic = [ZiptasticResultBasic::class, 'call'];
     $u->result_body = [ZiptasticResultBody::class, 'call'];
     $u->result_headers = [ZiptasticResultHeaders::class, 'call'];

@@ -80,6 +80,7 @@ module ZiptasticConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{zipcode}",
                   "parts" => [

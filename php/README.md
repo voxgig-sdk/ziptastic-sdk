@@ -35,7 +35,7 @@ $client = new ZiptasticSDK();
 
 ```php
 try {
-    // load() returns the bare GetLocationByZipcode record (throws on error).
+    // load() returns the ENTITY — call data_get() for the GetLocationByZipcode record (throws on error).
     $getlocationbyzipcode = $client->GetLocationByZipcode()->load(["id" => "example_id"]);
     print_r($getlocationbyzipcode);
 } catch (\Throwable $err) {
@@ -126,7 +126,8 @@ $client = ZiptasticSDK::test([
     "entity" => ["getlocationbyzipcode" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $getlocationbyzipcode = $client->GetLocationByZipcode()->load(["id" => "test01"]);
 print_r($getlocationbyzipcode);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -281,7 +282,7 @@ Create an instance: `$get_location_by_zipcode = $client->GetLocationByZipcode();
 #### Example: Load
 
 ```php
-// load() returns the bare GetLocationByZipcode record (throws on error).
+// load() returns the ENTITY — call data_get() for the GetLocationByZipcode record (throws on error).
 $get_location_by_zipcode = $client->GetLocationByZipcode()->load(["id" => "get_location_by_zipcode_id"]);
 ```
 

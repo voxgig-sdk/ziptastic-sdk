@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new ZiptasticSDK()
-const getlocationbyzipcode = await client.GetLocationByZipcode().load()
+const getlocationbyzipcode = await client.GetLocationByZipcode().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ZiptasticSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ZiptasticSDK.test({
+  entity: {
+    get_location_by_zipcode: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const getlocationbyzipcode = await client.GetLocationByZipcode().load({ id: 'test01' })
-// getlocationbyzipcode is a bare GetLocationByZipcode populated with mock data
+// getlocationbyzipcode is the GetLocationByZipcode entity, populated with mock data
+// — call getlocationbyzipcode.data() for the record itself
 console.log(getlocationbyzipcode)
 ```
 
@@ -182,7 +191,7 @@ require_once 'ziptastic_sdk.php';
 $client = new ZiptasticSDK();
 
 
-// Load a specific getlocationbyzipcode (returns the bare record; throws on error)
+// Load a specific getlocationbyzipcode (returns the ENTITY; call data_get() for the record; throws on error)
 $getlocationbyzipcode = $client->GetLocationByZipcode()->load(["id" => "example_id"]);
 print_r($getlocationbyzipcode);
 ```
@@ -210,7 +219,7 @@ require_relative "Ziptastic_sdk"
 client = ZiptasticSDK.new
 
 
-# Load a specific getlocationbyzipcode (returns the bare record; raises on error)
+# Load a specific getlocationbyzipcode (returns the ENTITY; call data_get for the record)
 getlocationbyzipcode = client.GetLocationByZipcode.load({ "id" => "example_id" })
 puts getlocationbyzipcode
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://ziptasticapi.com/](https://ziptasticapi.com/)
 
