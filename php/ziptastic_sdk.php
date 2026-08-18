@@ -40,7 +40,7 @@ class ZiptasticSDK
         $utility = new ZiptasticUtility();
         $this->_utility = $utility;
 
-        $config = ZiptasticConfig::make_config();
+        $config = ZiptasticConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

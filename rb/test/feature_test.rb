@@ -15,7 +15,7 @@ require_relative "../Ziptastic_sdk"
 module ZiptasticFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = ZiptasticConfig.make_config["feature"]
+    f = ZiptasticConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

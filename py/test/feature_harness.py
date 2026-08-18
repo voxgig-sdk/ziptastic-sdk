@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from ziptastic_sdk.config import make_config
+from ziptastic_sdk.config import shared_config
 from ziptastic_sdk.features import _make_feature
 from ziptastic_sdk.core.control import ZiptasticControl
 from ziptastic_sdk.core.error import ZiptasticError
@@ -24,7 +24,7 @@ from ziptastic_sdk.core.spec import ZiptasticSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

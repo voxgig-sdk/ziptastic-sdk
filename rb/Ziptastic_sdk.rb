@@ -28,7 +28,7 @@ class ZiptasticSDK
     utility = ZiptasticUtility.new
     @_utility = utility
 
-    config = ZiptasticConfig.make_config
+    config = ZiptasticConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
