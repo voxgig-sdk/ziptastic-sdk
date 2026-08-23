@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,9 +285,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
-| `country` |  |
-| `state` |  |
+| `city` | The city associated with the ZIP code |
+| `country` | The country associated with the ZIP code |
+| `state` | The state associated with the ZIP code |
 
 Operations: load.
 
@@ -312,9 +312,9 @@ Create an instance: `const get_location_by_zipcode = client.GetLocationByZipcode
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `state` | `string` |  |
+| `city` | `string` | The city associated with the ZIP code |
+| `country` | `string` | The country associated with the ZIP code |
+| `state` | `string` | The state associated with the ZIP code |
 
 #### Example: Load
 

@@ -6,7 +6,7 @@ The Golang SDK for the Ziptastic API — an entity-oriented client using standar
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.GetLocationByZipcode(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,9 +258,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"city"` |  |
-| `"country"` |  |
-| `"state"` |  |
+| `"city"` | The city associated with the ZIP code |
+| `"country"` | The country associated with the ZIP code |
+| `"state"` | The state associated with the ZIP code |
 
 Operations: Load.
 
@@ -285,9 +285,9 @@ Create an instance: `getLocationByZipcode := client.GetLocationByZipcode(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `state` | `string` |  |
+| `city` | `string` | The city associated with the ZIP code |
+| `country` | `string` | The country associated with the ZIP code |
+| `state` | `string` | The state associated with the ZIP code |
 
 #### Example: Load
 

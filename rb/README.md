@@ -238,9 +238,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
-| `country` |  |
-| `state` |  |
+| `city` | The city associated with the ZIP code |
+| `country` | The country associated with the ZIP code |
+| `state` | The state associated with the ZIP code |
 
 Operations: Load.
 
@@ -265,9 +265,9 @@ Create an instance: `get_location_by_zipcode = client.GetLocationByZipcode`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `String` |  |
-| `country` | `String` |  |
-| `state` | `String` |  |
+| `city` | `String` | The city associated with the ZIP code |
+| `country` | `String` | The country associated with the ZIP code |
+| `state` | `String` | The state associated with the ZIP code |
 
 #### Example: Load
 

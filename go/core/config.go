@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Ziptastic",
+			"slug": "ziptastic",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,14 +36,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "city",
+						"short": "The city associated with the ZIP code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "country",
+						"short": "The country associated with the ZIP code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "state",
+						"short": "The state associated with the ZIP code",
 						"type": "`$STRING`",
 					},
 				},

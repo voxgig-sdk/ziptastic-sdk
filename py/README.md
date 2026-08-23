@@ -241,9 +241,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `city` |  |
-| `country` |  |
-| `state` |  |
+| `city` | The city associated with the ZIP code |
+| `country` | The country associated with the ZIP code |
+| `state` | The state associated with the ZIP code |
 
 Operations: Load.
 
@@ -268,9 +268,9 @@ Create an instance: `get_location_by_zipcode = client.GetLocationByZipcode()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `city` | `str` |  |
-| `country` | `str` |  |
-| `state` | `str` |  |
+| `city` | `str` | The city associated with the ZIP code |
+| `country` | `str` | The country associated with the ZIP code |
+| `state` | `str` | The state associated with the ZIP code |
 
 #### Example: Load
 

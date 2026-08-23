@@ -36,18 +36,21 @@
               "active": true,
               "name": "city",
               "req": false,
+              "short": "The city associated with the ZIP code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "country",
               "req": false,
+              "short": "The country associated with the ZIP code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "state",
               "req": false,
+              "short": "The state associated with the ZIP code",
               "type": "`$STRING`"
             }
           ],

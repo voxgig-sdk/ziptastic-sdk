@@ -8,16 +8,19 @@ main: kit: entity: get_location_by_zipcode: {
     {
       name: "city"
       req: false
+      short: "The city associated with the ZIP code"
       type: "`$STRING`"
     }
     {
       name: "country"
       req: false
+      short: "The country associated with the ZIP code"
       type: "`$STRING`"
     }
     {
       name: "state"
       req: false
+      short: "The state associated with the ZIP code"
       type: "`$STRING`"
     }
   ]

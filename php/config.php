@@ -33,6 +33,9 @@ class ZiptasticConfig
         return [
             "main" => [
                 "name" => "Ziptastic",
+                "slug" => "ziptastic",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -55,14 +58,17 @@ class ZiptasticConfig
           'fields' => [
             [
               'name' => 'city',
+              'short' => 'The city associated with the ZIP code',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'country',
+              'short' => 'The country associated with the ZIP code',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'state',
+              'short' => 'The state associated with the ZIP code',
               'type' => '`$STRING`',
             ],
           ],

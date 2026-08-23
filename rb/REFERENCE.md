@@ -93,9 +93,9 @@ get_location_by_zipcode = client.GetLocationByZipcode
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `String` | No |  |
-| `country` | `String` | No |  |
-| `state` | `String` | No |  |
+| `city` | `String` | No | The city associated with the ZIP code |
+| `country` | `String` | No | The country associated with the ZIP code |
+| `state` | `String` | No | The state associated with the ZIP code |
 
 ### Operations
 

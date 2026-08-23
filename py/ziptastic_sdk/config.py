@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Ziptastic",
+            "slug": "ziptastic",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,14 +53,17 @@ def make_config():
         "fields": [
           {
             "name": "city",
+            "short": "The city associated with the ZIP code",
             "type": "`$STRING`",
           },
           {
             "name": "country",
+            "short": "The country associated with the ZIP code",
             "type": "`$STRING`",
           },
           {
             "name": "state",
+            "short": "The state associated with the ZIP code",
             "type": "`$STRING`",
           },
         ],

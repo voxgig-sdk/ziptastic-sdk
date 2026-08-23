@@ -92,9 +92,9 @@ $get_location_by_zipcode = $client->GetLocationByZipcode();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `city` | `string` | No |  |
-| `country` | `string` | No |  |
-| `state` | `string` | No |  |
+| `city` | `string` | No | The city associated with the ZIP code |
+| `country` | `string` | No | The country associated with the ZIP code |
+| `state` | `string` | No | The state associated with the ZIP code |
 
 ### Operations
 
