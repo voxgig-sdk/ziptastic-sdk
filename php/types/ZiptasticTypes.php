@@ -17,6 +17,7 @@ class GetLocationByZipcode
 {
     public ?string $city = null;
     public ?string $country = null;
+    public ?string $id = null;
     public ?string $state = null;
 }
 

@@ -9,6 +9,7 @@
 ---@class GetLocationByZipcode
 ---@field city? string
 ---@field country? string
+---@field id? string
 ---@field state? string
 
 ---@class GetLocationByZipcodeLoadMatch

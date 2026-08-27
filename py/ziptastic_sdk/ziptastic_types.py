@@ -19,6 +19,7 @@ from typing import TypedDict, Any
 class GetLocationByZipcode(TypedDict, total=False):
     city: str
     country: str
+    id: str
     state: str
 
 

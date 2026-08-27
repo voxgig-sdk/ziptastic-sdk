@@ -18,12 +18,22 @@ main: kit: entity: get_location_by_zipcode: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "state"
       req: false
       short: "The state associated with the ZIP code"
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "get_location_by_zipcode"
   op: {

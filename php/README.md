@@ -250,6 +250,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `city` | The city associated with the ZIP code |
 | `country` | The country associated with the ZIP code |
+| `id` |  |
 | `state` | The state associated with the ZIP code |
 
 Operations: Load.
@@ -277,6 +278,7 @@ Create an instance: `$get_location_by_zipcode = $client->GetLocationByZipcode();
 | --- | --- | --- |
 | `city` | `string` | The city associated with the ZIP code |
 | `country` | `string` | The country associated with the ZIP code |
+| `id` | `string` |  |
 | `state` | `string` | The state associated with the ZIP code |
 
 #### Example: Load

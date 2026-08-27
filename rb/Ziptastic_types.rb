@@ -16,11 +16,15 @@
 # @!attribute [rw] country
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] state
 #   @return [String, nil]
 GetLocationByZipcode = Struct.new(
   :city,
   :country,
+  :id,
   :state,
   keyword_init: true
 )

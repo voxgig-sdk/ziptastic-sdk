@@ -240,6 +240,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `city` | The city associated with the ZIP code |
 | `country` | The country associated with the ZIP code |
+| `id` |  |
 | `state` | The state associated with the ZIP code |
 
 Operations: Load.
@@ -267,6 +268,7 @@ Create an instance: `get_location_by_zipcode = client.GetLocationByZipcode`
 | --- | --- | --- |
 | `city` | `String` | The city associated with the ZIP code |
 | `country` | `String` | The country associated with the ZIP code |
+| `id` | `String` |  |
 | `state` | `String` | The state associated with the ZIP code |
 
 #### Example: Load

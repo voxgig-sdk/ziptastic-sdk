@@ -8,6 +8,7 @@
 export interface GetLocationByZipcode {
   city?: string
   country?: string
+  id?: string
   state?: string
 }
 

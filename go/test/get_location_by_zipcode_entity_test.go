@@ -61,13 +61,19 @@ func TestGetLocationByZipcodeEntity(t *testing.T) {
 
 		// LOAD
 		getLocationByZipcodeRef01Ent := client.GetLocationByZipcode(nil)
-		getLocationByZipcodeRef01MatchDt0 := map[string]any{}
+		getLocationByZipcodeRef01MatchDt0 := map[string]any{
+			"id": getLocationByZipcodeRef01Data["id"],
+		}
 		getLocationByZipcodeRef01DataDt0Loaded, err := getLocationByZipcodeRef01Ent.Load(getLocationByZipcodeRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if getLocationByZipcodeRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		getLocationByZipcodeRef01DataDt0LoadResult := core.ToMapAny(entityData(getLocationByZipcodeRef01DataDt0Loaded))
+		if getLocationByZipcodeRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if getLocationByZipcodeRef01DataDt0LoadResult["id"] != getLocationByZipcodeRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

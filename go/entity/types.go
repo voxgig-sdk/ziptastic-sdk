@@ -16,6 +16,7 @@ import (
 type GetLocationByZipcode struct {
 	City *string `json:"city,omitempty"`
 	Country *string `json:"country,omitempty"`
+	Id *string `json:"id,omitempty"`
 	State *string `json:"state,omitempty"`
 }
 

@@ -145,7 +145,7 @@ await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -287,6 +287,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `city` | The city associated with the ZIP code |
 | `country` | The country associated with the ZIP code |
+| `id` |  |
 | `state` | The state associated with the ZIP code |
 
 Operations: load.
@@ -314,6 +315,7 @@ Create an instance: `const get_location_by_zipcode = client.GetLocationByZipcode
 | --- | --- | --- |
 | `city` | `string` | The city associated with the ZIP code |
 | `country` | `string` | The country associated with the ZIP code |
+| `id` | `string` |  |
 | `state` | `string` | The state associated with the ZIP code |
 
 #### Example: Load

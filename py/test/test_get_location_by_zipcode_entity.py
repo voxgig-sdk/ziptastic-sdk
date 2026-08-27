@@ -48,9 +48,13 @@ class TestGetLocationByZipcodeEntity:
 
         # LOAD
         get_location_by_zipcode_ref01_ent = client.GetLocationByZipcode(None)
-        get_location_by_zipcode_ref01_match_dt0 = {}
+        get_location_by_zipcode_ref01_match_dt0 = {
+            "id": get_location_by_zipcode_ref01_data["id"],
+        }
         get_location_by_zipcode_ref01_data_dt0_loaded = get_location_by_zipcode_ref01_ent.load(get_location_by_zipcode_ref01_match_dt0, None)
-        assert get_location_by_zipcode_ref01_data_dt0_loaded is not None
+        get_location_by_zipcode_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(get_location_by_zipcode_ref01_data_dt0_loaded))
+        assert get_location_by_zipcode_ref01_data_dt0_load_result is not None
+        assert get_location_by_zipcode_ref01_data_dt0_load_result["id"] == get_location_by_zipcode_ref01_data["id"]
 
 
 

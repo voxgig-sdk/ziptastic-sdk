@@ -89,6 +89,7 @@ get_location_by_zipcode = client.GetLocationByZipcode()
 | --- | --- | --- | --- |
 | `city` | `str` | No | The city associated with the ZIP code |
 | `country` | `str` | No | The country associated with the ZIP code |
+| `id` | `str` | No |  |
 | `state` | `str` | No | The state associated with the ZIP code |
 
 ### Operations

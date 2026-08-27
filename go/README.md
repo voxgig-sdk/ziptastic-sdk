@@ -260,6 +260,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"city"` | The city associated with the ZIP code |
 | `"country"` | The country associated with the ZIP code |
+| `"id"` |  |
 | `"state"` | The state associated with the ZIP code |
 
 Operations: Load.
@@ -287,6 +288,7 @@ Create an instance: `getLocationByZipcode := client.GetLocationByZipcode(nil)`
 | --- | --- | --- |
 | `city` | `string` | The city associated with the ZIP code |
 | `country` | `string` | The country associated with the ZIP code |
+| `id` | `string` |  |
 | `state` | `string` | The state associated with the ZIP code |
 
 #### Example: Load

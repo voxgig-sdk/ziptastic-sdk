@@ -2,31 +2,31 @@
   "existing": {
     "get_location_by_zipcode": {
       "GET_LOCATION_BY_ZIPCODE00": {
-        "city": "s1e",
-        "country": "s1f",
-        "state": "s20",
-        "id": "GET_LOCATION_BY_ZIPCODE00"
+        "city": "s28",
+        "country": "s29",
+        "id": "GET_LOCATION_BY_ZIPCODE00",
+        "state": "s2b"
       },
       "GET_LOCATION_BY_ZIPCODE01": {
-        "city": "s3c",
-        "country": "s3d",
-        "state": "s3e",
-        "id": "GET_LOCATION_BY_ZIPCODE01"
+        "city": "s50",
+        "country": "s51",
+        "id": "GET_LOCATION_BY_ZIPCODE01",
+        "state": "s53"
       },
       "GET_LOCATION_BY_ZIPCODE02": {
-        "city": "s5a",
-        "country": "s5b",
-        "state": "s5c",
-        "id": "GET_LOCATION_BY_ZIPCODE02"
+        "city": "s78",
+        "country": "s79",
+        "id": "GET_LOCATION_BY_ZIPCODE02",
+        "state": "s7b"
       }
     }
   },
   "new": {
     "get_location_by_zipcode": {
       "get_location_by_zipcode_ref01": {
-        "city": "s78",
-        "country": "s79",
-        "state": "s7a"
+        "city": "sa0",
+        "country": "sa1",
+        "state": "sa3"
       }
     }
   }

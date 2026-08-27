@@ -243,6 +243,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | --- | --- |
 | `city` | The city associated with the ZIP code |
 | `country` | The country associated with the ZIP code |
+| `id` |  |
 | `state` | The state associated with the ZIP code |
 
 Operations: Load.
@@ -270,6 +271,7 @@ Create an instance: `get_location_by_zipcode = client.GetLocationByZipcode()`
 | --- | --- | --- |
 | `city` | `str` | The city associated with the ZIP code |
 | `country` | `str` | The country associated with the ZIP code |
+| `id` | `str` |  |
 | `state` | `str` | The state associated with the ZIP code |
 
 #### Example: Load

@@ -48,9 +48,13 @@ class GetLocationByZipcodeEntityTest extends TestCase
 
         // LOAD
         $get_location_by_zipcode_ref01_ent = $client->GetLocationByZipcode(null);
-        $get_location_by_zipcode_ref01_match_dt0 = [];
+        $get_location_by_zipcode_ref01_match_dt0 = [
+            "id" => $get_location_by_zipcode_ref01_data["id"],
+        ];
         $get_location_by_zipcode_ref01_data_dt0_loaded = $get_location_by_zipcode_ref01_ent->load($get_location_by_zipcode_ref01_match_dt0, null);
-        $this->assertNotNull($get_location_by_zipcode_ref01_data_dt0_loaded);
+        $get_location_by_zipcode_ref01_data_dt0_load_result = Helpers::to_map(is_object($get_location_by_zipcode_ref01_data_dt0_loaded) && method_exists($get_location_by_zipcode_ref01_data_dt0_loaded, 'data_get') ? $get_location_by_zipcode_ref01_data_dt0_loaded->data_get() : $get_location_by_zipcode_ref01_data_dt0_loaded);
+        $this->assertNotNull($get_location_by_zipcode_ref01_data_dt0_load_result);
+        $this->assertEquals($get_location_by_zipcode_ref01_data_dt0_load_result["id"], $get_location_by_zipcode_ref01_data["id"]);
 
     }
 }

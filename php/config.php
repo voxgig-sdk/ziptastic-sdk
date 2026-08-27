@@ -42,6 +42,7 @@ class ZiptasticConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -64,6 +65,10 @@ class ZiptasticConfig
             [
               'name' => 'country',
               'short' => 'The country associated with the ZIP code',
+              'type' => '`$STRING`',
+            ],
+            [
+              'name' => 'id',
               'type' => '`$STRING`',
             ],
             [

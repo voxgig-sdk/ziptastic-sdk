@@ -28,6 +28,7 @@ module ZiptasticConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -50,6 +51,10 @@ module ZiptasticConfig
             {
               "name" => "country",
               "short" => "The country associated with the ZIP code",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {
