@@ -25,5 +25,6 @@ class GetLocationByZipcode
 class GetLocationByZipcodeLoadMatch
 {
     public string $id;
+    public ?string $callback = null;
 }
 

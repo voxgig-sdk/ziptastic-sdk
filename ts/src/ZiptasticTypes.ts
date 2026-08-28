@@ -14,5 +14,6 @@ export interface GetLocationByZipcode {
 
 export interface GetLocationByZipcodeLoadMatch {
   id: string
+  callback?: string
 }
 

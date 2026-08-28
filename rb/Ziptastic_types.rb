@@ -33,8 +33,12 @@ GetLocationByZipcode = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [String]
+#
+# @!attribute [rw] callback
+#   @return [String, nil]
 GetLocationByZipcodeLoadMatch = Struct.new(
   :id,
+  :callback,
   keyword_init: true
 )
 

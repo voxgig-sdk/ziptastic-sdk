@@ -23,6 +23,7 @@ type GetLocationByZipcode struct {
 // GetLocationByZipcodeLoadMatch is the typed request payload for GetLocationByZipcode.LoadTyped.
 type GetLocationByZipcodeLoadMatch struct {
 	Id string `json:"id"`
+	Callback *string `json:"callback,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

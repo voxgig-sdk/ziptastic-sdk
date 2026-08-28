@@ -14,6 +14,7 @@
 
 ---@class GetLocationByZipcodeLoadMatch
 ---@field id string
+---@field callback? string
 
 local M = {}
 

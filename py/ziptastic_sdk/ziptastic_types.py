@@ -23,5 +23,9 @@ class GetLocationByZipcode(TypedDict, total=False):
     state: str
 
 
-class GetLocationByZipcodeLoadMatch(TypedDict):
+class GetLocationByZipcodeLoadMatchRequired(TypedDict):
     id: str
+
+
+class GetLocationByZipcodeLoadMatch(GetLocationByZipcodeLoadMatchRequired, total=False):
+    callback: str
