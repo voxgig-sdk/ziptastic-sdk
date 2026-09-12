@@ -65,14 +65,16 @@ main: kit: entity: get_location_by_zipcode: {
           }
           method: "GET"
           orig: "/{zipcode}"
-          parts: [
-            "{id}"
-          ]
           rename: {
             param: {
               zipcode: "id"
             }
           }
+          segments: [
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "callback"

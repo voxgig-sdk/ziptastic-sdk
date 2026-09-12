@@ -77,6 +77,10 @@ class ZiptasticConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'get_location_by_zipcode',
           'op' => [
             'load' => [
@@ -108,12 +112,14 @@ class ZiptasticConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{zipcode}',
-                  'parts' => [
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'zipcode' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -125,6 +131,9 @@ class ZiptasticConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    '{id}',
                   ],
                 ],
               ],

@@ -63,6 +63,10 @@ module ZiptasticConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "get_location_by_zipcode",
           "op" => {
             "load" => {
@@ -94,14 +98,16 @@ module ZiptasticConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{zipcode}",
-                  "parts" => [
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "zipcode" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "callback",
@@ -112,6 +118,9 @@ module ZiptasticConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "{id}",
+                  ],
                 },
               ],
             },
