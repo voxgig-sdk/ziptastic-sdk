@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ZiptasticSDK } from '@voxgig-sdk/ziptastic'
+import { ZiptasticSDK } from '@voxgig-sdk/ziptastic-sdk'
 
 const client = new ZiptasticSDK()
 ```
@@ -407,7 +407,7 @@ ziptastic/
 Import the SDK from the package root:
 
 ```ts
-import { ZiptasticSDK } from '@voxgig-sdk/ziptastic'
+import { ZiptasticSDK } from '@voxgig-sdk/ziptastic-sdk'
 ```
 
 ### Entity state

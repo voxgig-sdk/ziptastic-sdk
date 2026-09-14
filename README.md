@@ -105,7 +105,7 @@ local result, err = client:GetLocationByZipcode():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ziptastic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ziptastic-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ziptastic-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ziptastic-sdk/releases) |
 | Python | `voxgig-sdk-ziptastic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ziptastic-sdk/releases) |
 | PHP | `voxgig-sdk/ziptastic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ziptastic-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/ziptastic-sdk/go` | `go get github.com/voxgig-sdk/ziptastic-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:GetLocationByZipcode():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { ZiptasticSDK } from '@voxgig-sdk/ziptastic'
+import { ZiptasticSDK } from '@voxgig-sdk/ziptastic-sdk'
 
 const client = new ZiptasticSDK()
 
