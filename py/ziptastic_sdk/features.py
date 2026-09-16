@@ -1,12 +1,18 @@
 # Ziptastic SDK feature factory
 
 from ziptastic_sdk.feature.base_feature import ZiptasticBaseFeature
+from ziptastic_sdk.feature.ratelimit_feature import ZiptasticRatelimitFeature
+from ziptastic_sdk.feature.retry_feature import ZiptasticRetryFeature
 from ziptastic_sdk.feature.test_feature import ZiptasticTestFeature
+from ziptastic_sdk.feature.timeout_feature import ZiptasticTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ZiptasticBaseFeature(),
+    "ratelimit": lambda: ZiptasticRatelimitFeature(),
+    "retry": lambda: ZiptasticRetryFeature(),
     "test": lambda: ZiptasticTestFeature(),
+    "timeout": lambda: ZiptasticTimeoutFeature(),
 }
 
 

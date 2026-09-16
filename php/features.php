@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Ziptastic SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class ZiptasticFeatures
@@ -14,8 +17,14 @@ class ZiptasticFeatures
         switch ($name) {
             case "base":
                 return new ZiptasticBaseFeature();
+            case "ratelimit":
+                return new ZiptasticRatelimitFeature();
+            case "retry":
+                return new ZiptasticRetryFeature();
             case "test":
                 return new ZiptasticTestFeature();
+            case "timeout":
+                return new ZiptasticTimeoutFeature();
             default:
                 return new ZiptasticBaseFeature();
         }
@@ -31,7 +40,10 @@ class ZiptasticFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
