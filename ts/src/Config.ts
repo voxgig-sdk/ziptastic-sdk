@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      get_location_by_zipcode: {
-      },
-
+        get_location_by_zipcode: {
+        },
+  
     }
   }
 
