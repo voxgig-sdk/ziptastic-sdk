@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,22 +107,26 @@ class Config {
             "fields": [
                 {
                     "name": "city",
-                    "short": "The city associated with the ZIP code",
-                    "type": "`$STRING`"
+                    "title": "City",
+                    "type": "`$STRING`",
+                    "short": "The city associated with the ZIP code"
                 },
                 {
                     "name": "country",
-                    "short": "The country associated with the ZIP code",
-                    "type": "`$STRING`"
+                    "title": "Country",
+                    "type": "`$STRING`",
+                    "short": "The country associated with the ZIP code"
                 },
                 {
                     "name": "id",
+                    "title": "Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "state",
-                    "short": "The state associated with the ZIP code",
-                    "type": "`$STRING`"
+                    "title": "State",
+                    "type": "`$STRING`",
+                    "short": "The state associated with the ZIP code"
                 }
             ],
             "id": {
@@ -143,53 +140,53 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": "90210",
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "zipcode",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ],
-                                "query": [
-                                    {
-                                        "example": "myCallback",
-                                        "kind": "query",
-                                        "name": "callback",
-                                        "orig": "callback",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/{zipcode}",
-                            "rename": {
-                                "param": {
-                                    "zipcode": "id"
-                                }
-                            },
                             "segments": [
                                 {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "callback",
-                                    "id"
-                                ]
+                            "parts": [
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "zipcode": "id"
+                                }
                             },
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "zipcode",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "90210"
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "callback",
+                                        "orig": "callback",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "myCallback"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "callback",
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }

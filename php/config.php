@@ -113,22 +113,26 @@ class ZiptasticConfig
           'fields' => [
             [
               'name' => 'city',
-              'short' => 'The city associated with the ZIP code',
+              'title' => 'City',
               'type' => '`$STRING`',
+              'short' => 'The city associated with the ZIP code',
             ],
             [
               'name' => 'country',
-              'short' => 'The country associated with the ZIP code',
+              'title' => 'Country',
               'type' => '`$STRING`',
+              'short' => 'The country associated with the ZIP code',
             ],
             [
               'name' => 'id',
+              'title' => 'Id',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'state',
-              'short' => 'The state associated with the ZIP code',
+              'title' => 'State',
               'type' => '`$STRING`',
+              'short' => 'The state associated with the ZIP code',
             ],
           ],
           'id' => [
@@ -142,38 +146,45 @@ class ZiptasticConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'example' => '90210',
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'zipcode',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                    'query' => [
-                      [
-                        'example' => 'myCallback',
-                        'kind' => 'query',
-                        'name' => 'callback',
-                        'orig' => 'callback',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{zipcode}',
+                  'segments' => [
+                    [
+                      'var' => 'id',
+                    ],
+                  ],
+                  'parts' => [
+                    '{id}',
+                  ],
                   'rename' => [
                     'param' => [
                       'zipcode' => 'id',
                     ],
                   ],
-                  'segments' => [
-                    [
-                      'var' => 'id',
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'zipcode',
+                        'type' => '`$STRING`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                        'example' => '90210',
+                      ],
+                    ],
+                    'query' => [
+                      [
+                        'name' => 'callback',
+                        'orig' => 'callback',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'example' => 'myCallback',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -181,13 +192,6 @@ class ZiptasticConfig
                       'callback',
                       'id',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    '{id}',
                   ],
                 ],
               ],

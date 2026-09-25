@@ -91,22 +91,26 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "city",
-						"short": "The city associated with the ZIP code",
+						"title": "City",
 						"type": "`$STRING`",
+						"short": "The city associated with the ZIP code",
 					},
 					map[string]any{
 						"name": "country",
-						"short": "The country associated with the ZIP code",
+						"title": "Country",
 						"type": "`$STRING`",
+						"short": "The country associated with the ZIP code",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "state",
-						"short": "The state associated with the ZIP code",
+						"title": "State",
 						"type": "`$STRING`",
+						"short": "The state associated with the ZIP code",
 					},
 				},
 				"id": map[string]any{
@@ -120,38 +124,45 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "90210",
-											"kind": "param",
-											"name": "id",
-											"orig": "zipcode",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": "myCallback",
-											"kind": "query",
-											"name": "callback",
-											"orig": "callback",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/{zipcode}",
+								"segments": []any{
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"{id}",
+								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"zipcode": "id",
 									},
 								},
-								"segments": []any{
-									map[string]any{
-										"var": "id",
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "zipcode",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "90210",
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "callback",
+											"orig": "callback",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "myCallback",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -159,13 +170,6 @@ func MakeConfig() map[string]any {
 										"callback",
 										"id",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"{id}",
 								},
 							},
 						},

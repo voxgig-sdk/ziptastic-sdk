@@ -1,7 +1,7 @@
 // Typed models for the Ziptastic SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,10 +14,6 @@ import (
 
 // GetLocationByZipcode is the typed data model for the get_location_by_zipcode entity.
 type GetLocationByZipcode struct {
-	City *string `json:"city,omitempty"`
-	Country *string `json:"country,omitempty"`
-	Id *string `json:"id,omitempty"`
-	State *string `json:"state,omitempty"`
 }
 
 // GetLocationByZipcodeLoadMatch is the typed request payload for GetLocationByZipcode.LoadTyped.
